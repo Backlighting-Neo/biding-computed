@@ -19,14 +19,17 @@ export default {
 
   mounted() {
     this.charts = null;
-
     this.charts = echarts.init(this.$refs.container);
     this.charts.setOption(this.options);
   },
 
-  updated() {
-
+  watch: {
+    options(value) {
+      console.log('updated');
+      this.charts.setOption(value);
+    }
   }
+  
 }
 </script>
 
